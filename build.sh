@@ -4,6 +4,8 @@ IFS=$'\n\t'
 
 case "${1:-default}" in
 	default)
+		# go run build.go "assets"
+		# go run build.go "deps"
 		go run build.go
 		;;
 
