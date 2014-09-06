@@ -2,12 +2,9 @@
 // All rights reserved. Use of this source code is governed by an MIT-style
 // license that can be found in the LICENSE file.
 //
-// This code largely borrows from stocksim.  Some tweaks have been made by me
+// This code largely borrows from Syncthing, which is copyright (C) 2014 Jakob
+// Borg and Contributors (see the Syncthing CONTRIBUTORS file).  Some tweaks have been made by me
 // over which I maintain copyright.
-//
-// Copyright (C) 2014 Jakob Borg and Contributors (see the CONTRIBUTORS file).
-// All rights reserved. Use of this source code is governed by an MIT-style
-// license that can be found in the LICENSE file.
 
 // +build ignore
 
