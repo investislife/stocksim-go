@@ -33,7 +33,6 @@ var (
 	BuildHost    = "unknown"
 	BuildUser    = "unknown"
 	LongVersion  string
-	GoArchExtra  string // "", "v5", "v6", "v7"
 	lastModified = time.Now().UTC().Format(http.TimeFormat)
 	showVersion  bool
 )
