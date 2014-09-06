@@ -21,3 +21,9 @@ _testmain.go
 
 *.exe
 *.test
+
+bin
+*.sublime*
+*.tar.gz
+*.zip
+stocksim
