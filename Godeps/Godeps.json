@@ -1,0 +1,8 @@
+{
+	"ImportPath": "github.com/w0uld/stocksim-go",
+	"GoVersion": "go1.3.1",
+	"Packages": [
+		"./cmd/..."
+	],
+	"Deps": []
+}
