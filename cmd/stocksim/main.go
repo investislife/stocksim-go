@@ -22,6 +22,8 @@ import (
 	"strings"
 	"time"
 
+	"github.com/gorilla/handlers"
+	"github.com/gorilla/mux"
 	"github.com/w0uld/stocksim-go/auto"
 )
 
@@ -70,6 +72,7 @@ func init() {
 
 func main() {
 	var address string
+	var router *mux.Router
 	fullAddress := os.Getenv("STGUIADDRESS")
 
 	if fullAddress == "" {
@@ -99,14 +102,17 @@ func main() {
 		runtime.GOMAXPROCS(runtime.NumCPU())
 	}
 
-	// Main handler
-	mux := http.NewServeMux()
+	router = mux.NewRouter()
 
 	// Serve compiled in assets unless an asset directory was set (for development)
-	mux.Handle("/", embeddedStatic(os.Getenv("SSGUIASSETS")))
+	router.PathPrefix("/").Handler(embeddedStatic(os.Getenv("SSGUIASSETS")))
 
+	http.Handle("/", handlers.LoggingHandler(os.Stdout, router))
 	fmt.Printf("Listening on %s ...\n", address)
-	http.ListenAndServe(address, mux)
+	err := http.ListenAndServe(address, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func embeddedStatic(assetDir string) http.Handler {
